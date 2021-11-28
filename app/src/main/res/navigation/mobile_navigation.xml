@@ -23,7 +23,9 @@
         <action
             android:id="@+id/action_HomeSecondFragment_to_HomeFragment"
             app:destination="@id/navigation_home" />
-
+        <argument
+            android:name="mygenre"
+            app:argType="string" />
         <argument
             android:name="myArg"
             app:argType="string" />

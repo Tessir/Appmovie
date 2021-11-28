@@ -2,14 +2,17 @@ package com.gmail.eamosse.imdb.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.gmail.eamosse.idbdata.data.Category
 import com.gmail.eamosse.imdb.databinding.CategoryListItemBinding
-import java.util.*
+
+// import com.gmail.eamosse.imdb.ui.dashboard.DashboardFragment
+// import com.gmail.eamosse.imdb.ui.dashboard.DashboardViewModel
+// import java.util.*
 
 class CategoryAdapter(private val items: List<Category>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-
     inner class ViewHolder(private val binding: CategoryListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Category) {
@@ -26,5 +29,12 @@ class CategoryAdapter(private val items: List<Category>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
+        holder.itemView.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToHomeSecondFragment(
+                items[position].id.toString(),
+                items[position].name
+            )
+            findNavController(it).navigate(action)
+        }
     }
 }
