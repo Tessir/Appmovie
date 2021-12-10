@@ -39,7 +39,7 @@ class HomeSecondFragment : Fragment() {
                 viewLifecycleOwner,
                 Observer {
                     // récupérer les catégories
-                    getMoviebyCategories(args.mygenre)
+                    getMoviebyCategories(args.myArg)
                 }
             )
             moviesbycategory.observe(
@@ -57,9 +57,6 @@ class HomeSecondFragment : Fragment() {
         }
         view.findViewById<TextView>(R.id.textview_home_second).text =
             getString(R.string.hello_home_second, args.myArg)
-
-        view.findViewById<TextView>(R.id.category_home_second).text =
-            getString(R.string.categorie, args.mygenre)
 
         view.findViewById<Button>(R.id.button_home_second).setOnClickListener {
             findNavController().navigate(R.id.action_HomeSecondFragment_to_HomeFragment)
