@@ -4,14 +4,14 @@ buildscript {
     ext.koin_version = "2.0.1"
     ext.lifecycle_version = "2.2.0"
     ext.retrofit = "2.6.2"
-    ext.room_version = "2.2.4"
+    ext.room_version = "2.3.0"
     repositories {
         google()
         jcenter()
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath 'com.android.tools.build:gradle:7.0.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5'
 

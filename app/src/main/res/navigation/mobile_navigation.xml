@@ -10,7 +10,6 @@
         android:name="com.gmail.eamosse.imdb.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
-
         <action
             android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
             app:destination="@id/navigation_home_second" />
@@ -25,6 +24,9 @@
             app:destination="@id/navigation_home" />
         <argument
             android:name="myArg"
+            app:argType="string" />
+        <argument
+            android:name="mytitle"
             app:argType="string" />
     </fragment>
 

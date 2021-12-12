@@ -16,10 +16,10 @@ data class MoviesResponse(
         var id: Int,
 
         @SerializedName("poster_path")
-        var posterPath: String,
+        var posterPath: String ?,
 
         @SerializedName("backdrop_path")
-        var backdropPath: String,
+        var backdropPath: String?,
 
         @SerializedName("title")
         var title: String,
@@ -39,11 +39,8 @@ data class MoviesResponse(
         @SerializedName("release_date")
         var releaseDate: String,
 
-        @SerializedName("runtime")
-        var runtime: Int,
-
         @SerializedName("overview")
-        var overview: String,
+        var overview: String
     )
 }
 
@@ -57,7 +54,6 @@ internal fun MoviesResponse.Movie.toMovie() = Movie(
     genreIds = genreIds,
     originalLanguage = originalLanguage,
     releaseDate = releaseDate,
-    runtime = runtime,
     overview = overview
 
 )
