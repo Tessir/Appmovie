@@ -20,7 +20,6 @@ internal data class DetailMovieResponse(
     val poster_path: String,
     @SerializedName("backdrop_path")
     val backdrop_path: String
-
 )
 
 internal fun DetailMovieResponse.toDetailMovie() = DetailMovie(
