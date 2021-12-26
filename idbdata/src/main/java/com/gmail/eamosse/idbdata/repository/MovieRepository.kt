@@ -11,6 +11,7 @@ import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.idbdata.data.Token
 import com.gmail.eamosse.idbdata.datasources.LocalDataSource
 import com.gmail.eamosse.idbdata.datasources.OnlineDataSource
+import com.gmail.eamosse.idbdata.local.entities.FavoriteEntity
 import com.gmail.eamosse.idbdata.utils.Result
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -68,6 +69,7 @@ class MovieRepository : KoinComponent {
             is Result.Error -> result
         }
     }
+
     suspend fun getDetailMovie(Id: Int): Result<DetailMovie> {
         return when (val result = online.getDetailMovie(Id)) {
             is Result.Succes -> {
@@ -78,5 +80,14 @@ class MovieRepository : KoinComponent {
             }
             is Result.Error -> result
         }
+    }
+    suspend fun getFavoritesMovies(): List<FavoriteEntity> {
+        return local.getFavoritesMovies()
+    }
+    suspend fun addToFavorite(favoriteMovie: FavoriteEntity) =
+        local.addToFavorite(favoriteMovie)
+    suspend fun checkMovie(id: String) = local.checkMovie(id)
+    suspend fun removeFromFavorite(id: String) {
+        local.removeFromFavorite(id)
     }
 }
