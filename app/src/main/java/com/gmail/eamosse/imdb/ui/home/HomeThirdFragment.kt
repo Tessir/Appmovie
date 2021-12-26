@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.gmail.eamosse.imdb.databinding.FragmentHomeThirdBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -34,8 +35,14 @@ class HomeThirdFragment : Fragment() {
             getDetailMovie(args.idmovie.toInt())
             movieDetail.observe(
                 viewLifecycleOwner,
-                {
-                    binding.tvMovieTitle.text = it.title
+                {itmovie->
+                    binding.tvMovieTitle.text = itmovie.title
+                    binding.tvDescription.text = itmovie.overview
+                    context?.let { it1 ->
+                        Glide.with(it1)
+                            .load("https://image.tmdb.org/t/p/w500" + itmovie.poster_path)
+                            .into(binding.ivMoviePoster)
+                    }
                 }
             )
             error.observe(
