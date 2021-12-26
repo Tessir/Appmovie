@@ -1,10 +1,12 @@
 package com.gmail.eamosse.idbdata.repository
 
+import com.gmail.eamosse.idbdata.api.response.*
 import com.gmail.eamosse.idbdata.api.response.toCategory
 import com.gmail.eamosse.idbdata.api.response.toEntity
 import com.gmail.eamosse.idbdata.api.response.toMovie
 import com.gmail.eamosse.idbdata.api.response.toToken
 import com.gmail.eamosse.idbdata.data.Category
+import com.gmail.eamosse.idbdata.data.DetailMovie
 import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.idbdata.data.Token
 import com.gmail.eamosse.idbdata.datasources.LocalDataSource
@@ -58,9 +60,20 @@ class MovieRepository : KoinComponent {
             is Result.Succes -> {
                 // On utilise la fonction map pour convertir les catégories de la réponse serveur
                 // en liste de categories d'objets de l'application
-                val categories = result.data.map {
+                val movie = result.data.map {
                     it.toMovie()
                 }
+                Result.Succes(movie)
+            }
+            is Result.Error -> result
+        }
+    }
+    suspend fun getDetailMovie(Id: Int): Result<DetailMovie> {
+        return when (val result = online.getDetailMovie(Id)) {
+            is Result.Succes -> {
+                // On utilise la fonction map pour convertir les catégories de la réponse serveur
+                // en liste de categories d'objets de l'application
+                val categories = result.data.toDetailMovie()
                 Result.Succes(categories)
             }
             is Result.Error -> result
