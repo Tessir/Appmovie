@@ -35,7 +35,7 @@ class HomeThirdFragment : Fragment() {
             getDetailMovie(args.idmovie.toInt())
             movieDetail.observe(
                 viewLifecycleOwner,
-                {itmovie->
+                { itmovie ->
                     binding.tvMovieTitle.text = itmovie.title
                     binding.tvDescription.text = itmovie.overview
                     context?.let { it1 ->
