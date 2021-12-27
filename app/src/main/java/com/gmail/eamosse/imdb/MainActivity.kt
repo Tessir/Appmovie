@@ -42,7 +42,10 @@ class MainActivity : AppCompatActivity(), Titlechange {
         // Charger les éléments principaux de la bottom bar
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home,
+                R.id.navigation_dashboard,
+                R.id.navigation_notifications,
+                R.id.nav_favorite
             )
         )
         // Indiquer les éléments principaux de la bottom bar
