@@ -15,7 +15,6 @@ data class FavoriteEntity(
     val original_title: String?,
     val overview: String?,
     val poster_path: String,
-    val title: String,
     val video: Boolean,
     val release_date: String,
 ) : Serializable, Parcelable {
