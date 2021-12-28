@@ -3,7 +3,6 @@ package com.gmail.eamosse.idbdata.local.entities
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.gmail.eamosse.idbdata.data.DetailMovie
 import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
@@ -11,8 +10,8 @@ import java.io.Serializable
 @Parcelize
 data class FavoriteEntity(
     val id_movie: String,
-    val backdroppath: String,
-    val original_title: String?,
+    val backdroppath: String?,
+    val original_title: String,
     val overview: String?,
     val poster_path: String,
     val video: Boolean,
@@ -23,15 +22,15 @@ data class FavoriteEntity(
     val baseUrl get() = "https://image.tmdb.org/t/p/w500"
 }
 
-fun FavoriteEntity.toDetailMovie() = DetailMovie(
-    id = id_movie.toInt(),
-    title = original_title,
-    backdrop_path = backdroppath,
-    date = release_date,
-    overview = overview,
-    video = video,
-    poster_path = poster_path,
-)
+// fun FavoriteEntity.toDetailMovie() = DetailMovie(
+//    id = id_movie.toInt(),
+//    title = original_title,
+//    backdrop_path = backdroppath,
+//    date = release_date,
+//    overview = overview,
+//    video = video,
+//    poster_path = poster_path,
+// )
 
 // fun FavoriteEntity.toMovie() = Movie(
 //    id = id_movie.toInt(),

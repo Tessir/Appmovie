@@ -16,31 +16,19 @@ data class MoviesResponse(
         var id: Int,
 
         @SerializedName("poster_path")
-        var posterPath: String ?,
+        var posterPath: String,
 
         @SerializedName("backdrop_path")
         var backdropPath: String?,
 
         @SerializedName("title")
         var title: String,
-
-        @SerializedName("vote_count")
-        var voteCount: Int,
-
-        @SerializedName("vote_average")
-        var voteAverage: Float,
-
-        @SerializedName("genre_ids")
-        var genreIds: List<Int>,
-
-        @SerializedName("original_language")
-        var originalLanguage: String = "",
-
+        @SerializedName("video")
+        val video: Boolean,
         @SerializedName("release_date")
         var releaseDate: String,
-
         @SerializedName("overview")
-        var overview: String
+        var overview: String?
     )
 }
 
@@ -49,11 +37,7 @@ internal fun MoviesResponse.Movie.toMovie() = Movie(
     posterPath = posterPath,
     backdropPath = backdropPath,
     title = title,
-    voteCount = voteCount,
-    voteAverage = voteAverage,
-    genreIds = genreIds,
-    originalLanguage = originalLanguage,
+    video = video,
     releaseDate = releaseDate,
     overview = overview
-
 )

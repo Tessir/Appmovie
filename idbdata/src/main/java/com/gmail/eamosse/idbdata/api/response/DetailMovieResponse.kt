@@ -1,14 +1,14 @@
 package com.gmail.eamosse.idbdata.api.response
 
-import com.gmail.eamosse.idbdata.data.Category
 import com.gmail.eamosse.idbdata.data.DetailMovie
+import com.gmail.eamosse.idbdata.data.Movie
 import com.google.gson.annotations.SerializedName
 
 internal data class DetailMovieResponse(
 
     @SerializedName("id")
     val id: Int,
-    @SerializedName("original_title")
+    @SerializedName("title")
     val title: String,
     @SerializedName("overview")
     val overview: String,
@@ -30,4 +30,14 @@ internal fun DetailMovieResponse.toDetailMovie() = DetailMovie(
     date = date,
     poster_path = poster_path,
     backdrop_path = backdrop_path
+)
+
+internal fun DetailMovieResponse.toMovie() = Movie(
+    id = id,
+    title = title,
+    overview = overview,
+    video = video,
+    releaseDate = date,
+    posterPath = poster_path,
+    backdropPath = backdrop_path
 )

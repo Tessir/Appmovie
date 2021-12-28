@@ -5,13 +5,10 @@ package com.gmail.eamosse.idbdata.data
 
 data class Movie(
     var id: Int,
-    var posterPath: String?,
+    var posterPath: String,
     var backdropPath: String ?,
+    val video: Boolean,
     var title: String,
-    var voteCount: Int,
-    var voteAverage: Float,
-    var genreIds: List<Int>,
-    var originalLanguage: String = "",
     var releaseDate: String,
-    var overview: String
+    var overview: String?
 )
