@@ -12,4 +12,5 @@
 
     <string name="home_second"> %1$s</string>
     <string name="home_third">Details</string>
+    <string name="favorite">Favoris</string>
 </resources>
